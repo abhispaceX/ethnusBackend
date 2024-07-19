@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
     const expenses = await Expense.find();
     res.json(expenses);
   } catch (error) {
-    console.error('Error fetching expenses:', error);
+    
     res.status(500).json({ message: 'Error fetching expenses', error: error.message });
   }
 });
@@ -25,7 +25,6 @@ router.post('/', async (req, res) => {
     const savedExpense = await expense.save();
     res.status(201).json(savedExpense);
   } catch (error) {
-    console.error('Error creating expense:', error);
     res.status(500).json({ message: 'Error creating expense', error: error.message });
   }
 });
@@ -43,7 +42,7 @@ router.put('/:id', async (req, res) => {
     }
     res.json(expense);
   } catch (error) {
-    console.error('Error updating expense:', error);
+    
     res.status(500).json({ message: 'Error updating expense', error: error.message });
   }
 });
@@ -56,7 +55,7 @@ router.delete('/:id', async (req, res) => {
     }
     res.json({ message: 'Expense deleted successfully' });
   } catch (error) {
-    console.error('Error deleting expense:', error);
+    
     res.status(500).json({ message: 'Error deleting expense', error: error.message });
   }
 });

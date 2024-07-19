@@ -5,17 +5,14 @@ const router = express.Router();
 router.get('/', async (req, res) => {
   try {
     const { startDate, endDate, period } = req.query;
-    console.log('Received summary request for dates:', startDate, endDate, 'period:', period);
-
+  
     const expenses = await Expense.find({
       date: { $gte: new Date(startDate), $lte: new Date(endDate) },
     });
 
-    console.log('Found expenses:', JSON.stringify(expenses, null, 2));
-
     const summary = calculateSummary(expenses, period);
 
-    console.log('Calculated summary:', summary);
+    
     res.json(summary);
   } catch (error) {
     console.error('Error calculating summary:', error);
