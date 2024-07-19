@@ -10,7 +10,7 @@ require('dotenv').config();
 const app = express();
 
 app.use(cors({
-  origin: 'https://main--ethunas.netlify.app', // Your frontend URL
+  origin: 'https://ethunas.netlify.app', // Your frontend URL
   credentials: true
 }));
 app.use(express.json());
