@@ -10,9 +10,9 @@ require('dotenv').config();
 const app = express();
 
 app.use(cors({
-  origin: 'https://ethnusbackend-fuxl.onrender.com', // or whatever your frontend URL is
+  origin: 'https://main--ethunas.netlify.app', // Your frontend URL
   credentials: true
-}))
+}));
 app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI, {
